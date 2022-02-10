@@ -23,8 +23,6 @@ class PersonAdapter(
     ): PersonViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view =layoutInflater.inflate(R.layout.item_users, parent, false)
-
-
         return PersonViewHolder(view)
     }
 
@@ -40,8 +38,9 @@ class PersonAdapter(
 
         fun bind(item: dataPerson){
             name.text = item.name
-            Glide.with(PersonAdapter)
-            avatar.setImageURI(avatar)
+            Glide.with(itemView)
+                .load(item.avatar)
+                .into(avatar)
         }
     }
 }

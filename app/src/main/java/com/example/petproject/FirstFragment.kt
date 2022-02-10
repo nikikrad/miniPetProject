@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petproject.databinding.FragmentFirstBinding
+import com.example.petproject.servises.Person.personsList
 
 class FirstFragment : Fragment() {
 
@@ -27,6 +30,10 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        Toast.makeText(context, "hi", Toast.LENGTH_SHORT).show()
+        val personAdapter = PersonAdapter(personsList)
+        binding.rvPersons.layoutManager = LinearLayoutManager(activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
+        binding.rvPersons.adapter = personAdapter
 
     }
 
