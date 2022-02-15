@@ -37,10 +37,11 @@ class PersonAdapter(
         private val avatar: ImageView = itemView.findViewById(R.id.iv_Photo)
 
         fun bind(item: dataPerson){
-            name.text = item.name
-            Glide.with(itemView)
-                .load(item.avatar)
-                .into(avatar)
+            name.text = item.page
+
+//            Glide.with(itemView)
+//                .load(item.avatar)
+//                .into(avatar)
         }
     }
 }

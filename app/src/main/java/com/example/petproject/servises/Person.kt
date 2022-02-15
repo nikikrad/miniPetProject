@@ -32,7 +32,7 @@ object Person {
         val myApi = retrofit.create(GetPerson::class.java)
 
         val call = myApi.getPerson()
-        call.enqueue(object: Callback<List<dataPerson>> {
+        call.enqueue(object: Callback<Response<dataPerson>> {
 
             override fun onResponse(
                 call: Call<List<dataPerson>>,
@@ -43,12 +43,12 @@ object Person {
                         val person = response.body()
                         if (person != null) {
                             for (i in 0 until person.count()) {
-                                val id = person[i].id
-                                val email = person[i].email
-                                val name = person[i].name
-                                val surname = person[i].lastname
-                                val avatar = person[i].avatar
-                                personsList.add(dataPerson(id, email, name, surname, avatar))
+                                val page = person[i].page
+                                val per_page = person[i].per_page
+                                val total = person[i].total
+                                val total_pages = person[i].total_pages
+                                val data = person[i].data
+                                personsList.add(dataPerson(page, per_page, total, total_pages, data))
                             }
                         }
                     }
