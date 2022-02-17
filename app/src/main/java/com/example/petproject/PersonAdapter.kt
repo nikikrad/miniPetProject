@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.GlideBuilder
 import com.example.petproject.dataClass.dataPerson
-import com.example.petproject.servises.Person
+import com.example.petproject.dataClass.moreDataPerson
 
 class PersonAdapter(
-    private val personsList:List<dataPerson>
+    private val personsList:List<moreDataPerson>
 ): RecyclerView.Adapter<PersonAdapter.PersonViewHolder>() {
 
     override fun getItemCount(): Int = personsList.size
@@ -36,12 +36,12 @@ class PersonAdapter(
         private val name: TextView = itemView.findViewById(R.id.tv_Name)
         private val avatar: ImageView = itemView.findViewById(R.id.iv_Photo)
 
-        fun bind(item: dataPerson){
-            name.text = item.page
+        fun bind(item: moreDataPerson){
+            name.text = item.first_name
 
-//            Glide.with(itemView)
-//                .load(item.avatar)
-//                .into(avatar)
+            Glide.with(itemView)
+                .load(item.avatar)
+                .into(avatar)
         }
     }
 }

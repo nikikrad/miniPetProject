@@ -1,12 +1,12 @@
 package com.example.petproject.requests
 
 import com.example.petproject.dataClass.dataPerson
-import retrofit2.Response
+import io.reactivex.Single
 import retrofit2.http.GET
 
 interface GetPerson {
 
     @GET("users?page=2")
-    fun getPerson():  Response<dataPerson>
+    fun getPerson(): Single<dataPerson>
 
 }
